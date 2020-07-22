@@ -1,32 +1,44 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <Header/>
     <router-view/>
+    <Footer/>
   </div>
 </template>
 
+<script>
+import Header from '@/components/Header.vue'
+import Footer from '@/components/Footer.vue'
+
+export default {
+  name: 'App',
+  components: {
+    Header, Footer
+  }
+}
+</script>
+
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap');
+
+html {
+  font-size:62.5%;/*16px×62.5％＝10px*/
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.6rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+.title {
+  font-family: 'Libre Baskerville', serif;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.subtitle {
+  font-family: 'Noto Serif JP', serif;
 }
 </style>
