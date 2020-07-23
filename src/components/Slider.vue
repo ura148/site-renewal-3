@@ -1,0 +1,47 @@
+<template>
+  <hooper :autoPlay="true" :playSpeed="1500">
+    <slide>
+      <img src="../assets/slide1.jpg" alt="アクアリウムの画像" class="hooper-content">
+    </slide>
+    <slide>
+      <img src="../assets/slide2.jpg" alt="海水アクアリウムの画像" class="hooper-content">
+    </slide>
+    <slide>
+      <img src="../assets/slide3.jpg" alt="ボトルアクアリウムの画像" class="hooper-content">
+    </slide>
+    <slide>
+      <img src="../assets/slide4.jpg" alt="海水アクアリウムの画像" class="hooper-content">
+    </slide>
+    <slide>
+      <img src="../assets/slide5.jpg" alt="ネイチャーアクアリウムの画像" class="hooper-content">
+    </slide>
+    <slide>
+      <img src="../assets/slide6.jpg" alt="店に設置されたアクアリウムの画像" class="hooper-content">
+    </slide>
+
+  </hooper>
+</template>
+
+<script>
+import { Hooper, Slide } from 'hooper';
+import 'hooper/dist/hooper.css';
+
+export default {
+    name: 'Slider',
+    components: {
+      Hooper,
+      Slide
+    }
+  }
+</script>
+
+<style>
+.hooper {
+  height: auto;
+}
+
+  .hooper-content {
+    width: 100%;
+    height: auto;
+  }
+</style>

@@ -19,7 +19,9 @@ export default {
 </script>
 
 <style>
+@import "./css/reset.css";
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap');
+
 
 html {
   font-size:62.5%;/*16px×62.5％＝10px*/
@@ -31,14 +33,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-}
-
-.title {
-  font-family: 'Libre Baskerville', serif;
-}
-
-.subtitle {
-  font-family: 'Noto Serif JP', serif;
+  background-color: #0B0B0B;
+  color: #fff;
 }
 </style>
