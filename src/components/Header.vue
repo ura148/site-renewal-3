@@ -8,15 +8,18 @@
       <span class="menubtn__line"></span>
       <span class="menubtn__line"></span>
     </button>
-    <nav v-bind:class="[ show === true ? 'nav__active' : '' ]" class="nav">
-      <ul class="nav__list">
-        <li @click="show=!show" class="nav__item"><a href="####" class="nav__link">Design</a></li>
-        <li @click="show=!show" class="nav__item"><a href="#" class="nav__link">Plan</a></li>
-        <li @click="show=!show" class="nav__item"><a href="#" class="nav__link">Work</a></li>
-        <li @click="show=!show" class="nav__item"><a href="#" class="nav__link">Company Info</a></li>
-        <li @click="show=!show" class="nav__item"><a href="#" class="nav__link">Contact</a></li>
-      </ul>
-    </nav>
+    <transition>
+      <nav v-show="show" class="nav">
+        <ul class="nav__list">
+          <li @click="show=!show" class="nav__item"><router-link to="/" class="nav__link">Top</router-link></li>
+          <li @click="show=!show" class="nav__item"><router-link to="/design" class="nav__link">Design</router-link></li>
+          <li @click="show=!show" class="nav__item"><router-link to="/contact" class="nav__link">Plan</router-link></li>
+          <li @click="show=!show" class="nav__item"><router-link to="/work" class="nav__link">Work</router-link></li>
+          <li @click="show=!show" class="nav__item"><router-link to="/company" class="nav__link">Company Info</router-link></li>
+          <li @click="show=!show" class="nav__item"><router-link to="/contact" class="nav__link">Contact</router-link></li>
+        </ul>
+      </nav>
+    </transition>
 
   </header>
 </template>
@@ -37,6 +40,7 @@ export default {
 <style>
 .header {
   position: fixed;
+  top: 0;
   box-sizing: border-box;
   padding: 0 18px;
   width: 100%;
@@ -76,18 +80,14 @@ export default {
   }
 
 .nav {
-  opacity: 0;
   position: absolute;
   top: 52px;
   left: 0;
+  z-index: 0;
   width: 100vw;
   height: 100vh;
   background-color: #000;
-  animation: fadeout 0.5s forwards ease-in-out;
 }
-  .nav__active {
-    animation: fadein 0.5s forwards ease-in-out;
-  }
   .nav__list {
 
   }
@@ -99,21 +99,26 @@ export default {
     line-height: 52px;
   }
 
-@keyframes fadein {
-  0% {
-    opacity: 0;
-     }
-  100% {
-    opacity: 1;
-     }
+
+/* アニメーション中のスタイル */
+.v-leave-active,
+.v-enter-active {
+    transition: opacity 1s;
 }
 
-@keyframes fadeout {
-  0% {
-    opacity: 1;
-     }
-  100% {
+/* 表示アニメーション */
+.v-enter {
     opacity: 0;
-     }
+}
+.v-enter-to {
+    opacity: 1;
+}
+
+/* 非表示アニメーション */
+.v-leave {
+    opacity: 1;
+}
+.v-leave-to {
+    opacity: 0;
 }
 </style>

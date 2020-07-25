@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Contact from '../views/Contact.vue'
+import Thanks from '../views/Thanks.vue'
+
 
 Vue.use(VueRouter)
 
@@ -9,6 +12,16 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: Contact
+  },
+  {
+    path: '/thanks',
+    name: 'Thanks',
+    component: Thanks
   },
   {
     path: '/about',
@@ -21,7 +34,10 @@ Vue.use(VueRouter)
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  scrollBehavior () {
+  return { x: 0, y: 0 }
+}
 })
 
 export default router
