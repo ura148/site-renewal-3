@@ -1,7 +1,6 @@
 <template>
-  <main>
+  <main class="main">
     <div class="eyecatch"></div>
-
     <section class="section">
       <div class="section__container">
         <div>
@@ -61,7 +60,9 @@
       <div class="section__container section__container__gray">
         <h2 class="section__title">Contact</h2>
         <p class="section__sentence section__sentence--mb">お見積もりのご相談からオーダー水槽やデザイン水槽についてお気軽にお問い合わせ下さい。</p>
-        <button type="button" name="more" class="button button-square">詳しくはこちら</button>
+        <router-link to="/contact">
+          <button type="button" name="more" class="button button-square">詳しくはこちら</button>
+        </router-link>
       </div>
     </section>
   </main>
@@ -76,79 +77,6 @@ export default {
   }
 }
 </script>
-
-<style>
-.center-item__sp {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.eyecatch {
-  width: 100%;
-  height: 61.80vw;
-  background-image: url("../assets/eyecatch-top.jpg");
-  background-size: 120% auto;
-  background-position: center;
-}
-
-/*=========
-section
-=========*/
-.section {
-  text-align: center;
-}
-  .section__container {
-    box-sizing: border-box;
-    padding: 64px 18px;
-  }
-    .section__container__gray {
-      background-color: #212121;
-    }
-  .section__title {
-    font-family: 'Libre Baskerville', serif;
-    margin-bottom: 26px;
-    font-size: 2.6rem;
-  }
-  .section__subtitle {
-    font-family: 'Noto Serif JP', serif;
-    margin-bottom: 18px;
-    font-size: 1.8rem;
-    line-height: 1.5;
-  }
-  .section__sentence {
-    margin-top: 16px;
-    text-align: left;
-    line-height: 1.5;
-  }
-    .section__sentence--mb {
-      text-align: center;
-      margin-bottom: 26px;
-    }
-  .section__box {
-    margin-bottom: 42px;
-  }
-  .section__box:last-of-type {
-    margin-bottom: 0;
-  }
-
-/*=========
-button
-=========*/
-.button {
-  cursor: pointer;
-}
-  .button-square {
-    padding: 9px 0;
-    width: 231px;
-    background-color: #eaeaea;
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 1.6rem;
-    line-height: 1;
-    color: #484848;
-    border-radius: 8px;
-    box-shadow: 0 5px 4px 3px rgba(0, 0, 0, 0.50);
-  }
-</style>
 
 <style scoped>
   .section__bgi {
