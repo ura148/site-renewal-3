@@ -81,12 +81,20 @@ button
   }
 
 @media screen and (min-width:1080px) {
-  .br__pc {
-    display: block;
+  .button {
+    transition: .3s;
   }
-  .br__sp {
-    display: none;
+  .button:hover {
+    transform: translateY(-4px);
+    color: #eaeaea;
+    background-color: #484848;
   }
+    .br__pc {
+      display: block;
+    }
+    .br__sp {
+      display: none;
+    }
   .eyecatch {
     height: 38.19vw;
     background-size: 120% auto;
@@ -105,5 +113,4 @@ button
       box-sizing: border-box;
       padding: 64px 18px;
     }
-
 }

@@ -1,6 +1,6 @@
 <template>
   <main class="main">
-    <div class="eyecatch"></div>
+    <div class="eyecatch eyecatch--contact"></div>
     <section>
       <div class="section__container">
         <h2 class="section__title">Contact form</h2>
@@ -48,6 +48,18 @@ export default {
         { text: 'その他', value: 'other' },
       ],
     }
+  },
+  methods: {
+    handleResize: function() {
+      this.windowW = window.innerWidth;
+      this.windowH = window.innerHeight;
+    }
+  },
+  mounted: function () {
+    window.addEventListener('resize', this.handleResize)
+  },
+  beforeDestroy: function () {
+    window.removeEventListener('resize', this.handleResize)
   }
 
 }
@@ -57,6 +69,9 @@ export default {
 select{
   background:#fff;
 }
+  .eyecatch--contact {
+    background-image: url("../assets/eyecatch-contact.jpg");
+  }
   .contact__explanation {
     margin-bottom: 64px;
   }

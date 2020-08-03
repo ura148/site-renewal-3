@@ -3,24 +3,36 @@
     <router-link to="/">
       <h1 class="header__companyName">Union</h1>
     </router-link>
-    <button type="button" class="menubtn" @click="show=!show">
+
+    <button v-if="windowW < 1080" type="button" class="menubtn" @click="show=!show">
       <span class="menubtn__line"></span>
       <span class="menubtn__line"></span>
       <span class="menubtn__line"></span>
     </button>
     <transition>
-      <nav v-show="show" class="nav">
+      <nav v-if="windowW < 1080" v-show="show" class="nav">
         <ul class="nav__list">
-          <li @click="show=!show" class="nav__item"><router-link to="/" class="nav__link">Top</router-link></li>
-          <li @click="show=!show" class="nav__item"><router-link to="/design" class="nav__link">Design</router-link></li>
-          <li @click="show=!show" class="nav__item"><router-link to="/contact" class="nav__link">Plan</router-link></li>
-          <li @click="show=!show" class="nav__item"><router-link to="/work" class="nav__link">Work</router-link></li>
-          <li @click="show=!show" class="nav__item"><router-link to="/company" class="nav__link">Company Info</router-link></li>
-          <li @click="show=!show" class="nav__item"><router-link to="/contact" class="nav__link">Contact</router-link></li>
+          <li @click="show=!show" class="nav__item"><router-link to="/" exact class="nav__link">Top</router-link></li>
+          <li @click="show=!show" class="nav__item"><router-link to="/design" exact class="nav__link">Design</router-link></li>
+          <li @click="show=!show" class="nav__item"><router-link to="/plan" exact class="nav__link">Plan</router-link></li>
+          <li @click="show=!show" class="nav__item"><router-link to="/work" exact class="nav__link">Work</router-link></li>
+          <li @click="show=!show" class="nav__item"><router-link to="/company" exact class="nav__link">Company Info</router-link></li>
+          <li @click="show=!show" class="nav__item"><router-link to="/contact" exact class="nav__link">Contact</router-link></li>
         </ul>
       </nav>
     </transition>
 
+    <!-- PC版navigation -->
+    <nav v-if="windowW >= 1080" class="nav">
+      <ul class="nav__list">
+        <li class="nav__item"><router-link to="/" exact class="nav__link">Top</router-link></li>
+        <li class="nav__item"><router-link to="/design" exact class="nav__link">Design</router-link></li>
+        <li class="nav__item"><router-link to="/plan" exact class="nav__link">Plan</router-link></li>
+        <li class="nav__item"><router-link to="/work" exact class="nav__link">Work</router-link></li>
+        <li class="nav__item"><router-link to="/company" exact class="nav__link">Company Info</router-link></li>
+        <li class="nav__item"><router-link to="/contact" exact class="nav__link">Contact</router-link></li>
+      </ul>
+    </nav>
   </header>
 </template>
 
@@ -34,6 +46,18 @@ export default {
       show: false
     };
   },
+  methods: {
+    handleResize: function() {
+      this.windowW = window.innerWidth;
+      this.windowH = window.innerHeight;
+    }
+  },
+  mounted: function () {
+    window.addEventListener('resize', this.handleResize)
+  },
+  beforeDestroy: function () {
+    window.removeEventListener('resize', this.handleResize)
+  }
 }
 </script>
 
@@ -86,7 +110,7 @@ export default {
   z-index: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  background-color: #0b0b0b;
 }
   .nav__list {
 
@@ -120,5 +144,36 @@ export default {
 }
 .v-leave-to {
     opacity: 0;
+}
+
+@media screen and (min-width:1080px){
+  .nav {
+    position: sticky;
+    width: auto;
+    height: auto;
+  }
+    .nav__list {
+      display: flex;
+    }
+    .nav__item {
+      height: auto;
+    }
+    .nav__item:last-of-type {
+      margin-right: 0;
+    }
+    .nav__item > .router-link-exact-active {
+      border-bottom: solid 3px #fff;
+      box-sizing: border-box;
+    }
+    .nav__link {
+      display: block;
+      height: 52px;
+      padding: 0px 16px;
+      font-weight: bold;
+      transition: 0.32s;
+    }
+    .nav__link:hover {
+      background-color: #393939;
+    }
 }
 </style>

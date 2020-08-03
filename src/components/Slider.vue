@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="windowW < 1080">
+    <div v-if="windowW < 768">
       <hooper :autoPlay="true" :playSpeed="1500">
         <slide>
           <img src="../assets/slide1.jpg" alt="アクアリウムの画像" class="hooper-content">
@@ -22,7 +22,7 @@
         </slide>
       </hooper>
     </div>
-    <div v-if="windowW => 1080">
+    <div v-if="windowW >= 768">
       <img src="../assets/slide1.jpg" alt="アクアリウムの画像" class="design__img">
       <img src="../assets/slide2.jpg" alt="海水アクアリウムの画像" class="design__img">
       <img src="../assets/slide3.jpg" alt="ボトルアクアリウムの画像" class="design__img">
@@ -49,6 +49,18 @@ export default {
     components: {
       Hooper,
       Slide
+    },
+    methods: {
+      handleResize: function() {
+        this.windowW = window.innerWidth;
+        this.windowH = window.innerHeight;
+      }
+    },
+    mounted: function () {
+      window.addEventListener('resize', this.handleResize)
+    },
+    beforeDestroy: function () {
+      window.removeEventListener('resize', this.handleResize)
     }
   }
 </script>
