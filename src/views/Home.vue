@@ -14,7 +14,7 @@
       </div>
     </section>
 
-    <section class="section section--gray">
+    <section class="section section--gray reason">
       <div class="section__container">
         <h2 class="section__title">Why Union</h2>
         <div class="reason__content">
@@ -86,15 +86,54 @@ export default {
     return {
       windowW: window.innerWidth,
       windowH: window.innerHeight,
+      scrollY: 0
     };
   },
   components: {
     Slider
+  },
+  methods: {
+    handleResize: function() {
+      this.windowW = window.innerWidth;
+      this.windowH = window.innerHeight;
+    },
+    calculateScrollY() {
+      this.scrollY = window.scrollY;
+    },
+    fadeIn() {
+      const elements = document.getElementsByClassName("section");
+
+      for( let i=0; i<elements.length; i++) {
+        const elementRectTop = elements[i].getBoundingClientRect().top;
+        const elementRectBottom = elements[i].getBoundingClientRect().bottom;
+        const elementTop = elementRectTop + scrollY;
+        const elementBottom = elementRectBottom + scrollY;
+        const elementH = elementBottom - elementTop;
+        const fadeStart = elementTop + (elementH / 2);
+
+        if (scrollY > fadeStart - this.windowH){
+          console.log("hoge" + i);
+        }
+      }
+    }
+  },
+  mounted: function () {
+    window.addEventListener('resize', this.handleResize);
+    window.addEventListener('scroll', this.fadeIn);
+    window.addEventListener('scroll', this.calculateScrollY);
+  },
+  beforeDestroy: function () {
+    window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener('scroll', this.fadeIn);
+    window.removeEventListener('scroll', this.calculateScrollY);
   }
 }
 </script>
 
 <style scoped>
+  .reason__icon {
+    width: 64px;
+  }
   .concept__img {
     display: none;
   }
@@ -108,20 +147,21 @@ export default {
     .section__bgi--work {
       background-image: url("../assets/bgi__work.jpg");
     }
-@media screen and (min-width:1080px) {
+@media screen and (min-width:768px) {
   .concept .section__container {
     display: flex;
-    flex-direction: row;
+    align-items: center;
   }
   .concept__sentence-content {
     text-align: left;
   }
   .concept__img {
     display: block;
-    width: 412px;
+    width: 32.2vw;
+    height: auto;
+    max-width: 412px;
     margin-left: 26px;
   }
-
   .reason__content {
     display: flex;
     flex-direction: row;
@@ -140,18 +180,10 @@ export default {
     width: 64px;
   }
 
-  .design .section__container {
-    padding: 64px 0;
-    max-width: none;
-  }
   .section__bgi {
     box-sizing: border-box;
     padding: 0 18px;
-    position: relative;
     height: 38.19vw;
-  }
-  .section__bgi .section__container {
-    position: relative;
   }
     .section__bgi--plan {
       background-image: url("../assets/bgi__plan--pc.jpg");
@@ -159,6 +191,36 @@ export default {
     .section__bgi--work {
       background-image: url("../assets/bgi__work--pc.jpg");
     }
+}
+
+@media screen and (min-width:1080px) {
+  .design .section__container {
+    padding: 64px 0;
+    max-width: none;
+  }
+
+  .section__bgi .section__container {
+    position: relative;
+  }
+  .section__bgi {
+    position: relative;
+    background-size: 100%;
+    background-position: center;
+    transition: 1s;
+  }
+  .section__bgi::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 38.19vw;
+  }
+  .section__bgi:hover {
+    background-size: 120%;
+  }
+  .section__bgi:hover::before {
+    transition: 1s;
+    background-color: rgba(0,0,0,0.4);
+  }
     .section__bgi-plan-sentence {
       position: absolute;
       top: 50%;
