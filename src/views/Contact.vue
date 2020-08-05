@@ -10,20 +10,20 @@
 
         <form class="form" action="index.html" method="post">
           <div class="form__content">
-            <p class="form__item">お名前</p>
+            <label class="form__label">お名前</label>
             <input type="text" class="form__item-input form__input">
 
-            <p class="form__item">メールアドレス</p>
+            <label class="form__label">メールアドレス</label>
             <input type="text" class="form__item-input form__input">
 
-            <p class="form__item">お問い合わせ項目</p>
+            <label class="form__label">お問い合わせ項目</label>
             <select class="form__item-input form__toggle-list">
               <option v-for="option in options" :key="option.id">
                 {{ option.text }}
               </option>
             </select>
 
-            <p class="form__item">お問い合わせ内容</p>
+            <label class="form__label">お問い合わせ内容</label>
             <textarea rows="8" class="form__item-input form__textarea"></textarea>
           </div>
 
@@ -88,7 +88,8 @@ select{
   .form__content {
     text-align: left;
   }
-  .form__item {
+  .form__label {
+    display: block;
     margin-bottom: 18px;
     font-family: 'Noto Serif JP', serif;
     font-size: 1.8rem;
@@ -107,6 +108,7 @@ select{
     width: 100%;
     height: 30px;
     font-size: 1.6rem;
+    border-radius: 4px;
   }
   .form__textarea {
     box-sizing: border-box;
