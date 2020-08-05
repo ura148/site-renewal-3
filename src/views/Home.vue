@@ -46,25 +46,29 @@
       </div>
     </section>
 
-    <section class="section section__bgi section__bgi--plan center-item__sp">
-      <div class="section__container">
-        <div class="section__bgi-plan-sentence">
-          <h2 class="section__title">Plan</h2>
-          <p class="section__sentence section__sentence--mb">お客様のご予算やイメージに合わせて<br>最適なプランをご提供します。</p>
-          <button type="button" name="more" class="button button-square">詳しくはこちら</button>
+    <router-link to="/plan">
+      <section class="section section__bgi section__bgi--plan center-item__sp">
+        <div class="section__container">
+          <div class="section__bgi-plan-sentence">
+            <h2 class="section__title">Plan</h2>
+            <p class="section__sentence section__sentence--mb">お客様のご予算やイメージに合わせて<br>最適なプランをご提供します。</p>
+            <button type="button" name="more" class="button button-square">詳しくはこちら</button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </router-link>
 
-    <section class="section section__bgi section__bgi--work center-item__sp">
-      <div class="section__container">
-        <div class="section__bgi-work-sentence">
-          <h2 class="section__title">Work</h2>
-          <p class="section__sentence section__sentence--mb">お客様のご予算やイメージに合わせて<br>最適なプランをご提供します。</p>
-          <button type="button" name="more" class="button button-square">詳しくはこちら</button>
+    <router-link to="/work">
+      <section class="section section__bgi section__bgi--work center-item__sp">
+        <div class="section__container">
+          <div class="section__bgi-work-sentence">
+            <h2 class="section__title">Work</h2>
+            <p class="section__sentence section__sentence--mb">お客様のご予算やイメージに合わせて<br>最適なプランをご提供します。</p>
+            <button type="button" name="more" class="button button-square">詳しくはこちら</button>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </router-link>
 
     <section class="section section--gray center-item__sp">
       <div class="section__container">
