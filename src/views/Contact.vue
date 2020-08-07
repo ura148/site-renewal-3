@@ -8,27 +8,6 @@
           ※休業日・営業時間、またはお問合せの内容により、回答までにお時間をいただく場合がございます。<br>
           ※お預かりする個人情報はお問い合わせの返答にのみ利用します。第三者に提供することはありません。</p>
 
-        <!-- <form class="form" action="index.html" method="post">
-          <div class="form__content">
-            <label class="form__label">お名前</label>
-            <input type="text" class="form__item-input form__input">
-
-            <label class="form__label">メールアドレス</label>
-            <input type="text" class="form__item-input form__input">
-
-            <label class="form__label">お問い合わせ項目</label>
-            <select class="form__item-input form__toggle-list">
-              <option v-for="option in options" :key="option.id">
-                {{ option.text }}
-              </option>
-            </select>
-
-            <label class="form__label">お問い合わせ内容</label>
-            <textarea rows="8" class="form__item-input form__textarea"></textarea>
-          </div>
-
-          <button type="submit" class="button button-square">送信</button>
-        </form> -->
         <ContactForm/>
 
       </div>
@@ -43,12 +22,6 @@ export default {
   name: 'Contact',
   data() {
     return {
-      options: [
-        { text: 'オーダー水槽', value: 'order aquarium' },
-        { text: 'デザイナーズ水槽', value: 'designer aquarium' },
-        { text: 'お見積もり', value: 'mitsumori' },
-        { text: 'その他', value: 'other' },
-      ],
     }
   },
   components: {
@@ -86,9 +59,6 @@ select{
     background-color: #0d6fc4;
   }
 
-.form {
-
-}
   .form__content {
     text-align: left;
   }
