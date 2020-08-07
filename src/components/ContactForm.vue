@@ -40,49 +40,16 @@
         </v-card-text>
       </v-card>
 
-        <!-- <v-card>
-            <v-container>
-                <v-form ref="form" v-model="contactFormValidation.valid" lazy-validation>
-
-                    <v-text-field
-                            v-model="contactForm.name"
-                            :rules="contactFormValidation.nameRules"
-                            label="名前"
-                            required
-                    ></v-text-field>
-                    <v-text-field
-                            v-model="contactForm.email"
-                            :rules="contactFormValidation.emailRules"
-                            label="メールアドレス"
-                            required
-                    ></v-text-field>
-                    <v-textarea
-                            v-model="contactForm.contents"
-                            :rules="contactFormValidation.contentsRules"
-                            label="内容"
-                            background-color="#fff"
-                            required
-                    ></v-textarea>
-                    <v-btn
-                            :loading="contactForm.loading"
-                            :disabled="!contactFormValidation.valid"
-                            @click="sendMail()"
-                            class="button button-square"
-                    >送信
-                    </v-btn>
-                </v-form>
-            </v-container>
-        </v-card> -->
-        <v-snackbar
-                v-model="snackBar.show"
-                :color="snackBar.color"
-                bottom
-                right
-                :timeout="6000"
-                class="font-weight-bold"
-        >
-            {{snackBar.message}}
-        </v-snackbar>
+      <v-snackbar
+              v-model="snackBar.show"
+              :color="snackBar.color"
+              bottom
+              right
+              :timeout="6000"
+              class="font-weight-bold"
+      >
+          {{snackBar.message}}
+      </v-snackbar>
     </div>
 </template>
 
@@ -150,10 +117,19 @@
   }
 </script>
 
-<style scoped>
-.v-text-field__slot{
-  display: none;
+<style>
+div > .v-list-item__title {
+  text-align: left;
+  font-size: 1.6rem;
 }
+
+div .v-textarea textarea {
+  padding-top: 10px;
+}
+</style>
+
+
+<style scoped>
 .theme--light.v-btn:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
   background-color: #0d6fc4;
 }
