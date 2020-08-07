@@ -8,7 +8,7 @@
           ※休業日・営業時間、またはお問合せの内容により、回答までにお時間をいただく場合がございます。<br>
           ※お預かりする個人情報はお問い合わせの返答にのみ利用します。第三者に提供することはありません。</p>
 
-        <form class="form" action="index.html" method="post">
+        <!-- <form class="form" action="index.html" method="post">
           <div class="form__content">
             <label class="form__label">お名前</label>
             <input type="text" class="form__item-input form__input">
@@ -28,7 +28,8 @@
           </div>
 
           <button type="submit" class="button button-square">送信</button>
-        </form>
+        </form> -->
+        <ContactForm/>
 
       </div>
     </section>
@@ -36,6 +37,7 @@
 </template>
 
 <script>
+import ContactForm from '@/components/ContactForm.vue'
 
 export default {
   name: 'Contact',
@@ -49,6 +51,9 @@ export default {
       ],
     }
   },
+  components: {
+    ContactForm
+  },
   methods: {
     handleResize: function() {
       this.windowW = window.innerWidth;
@@ -61,7 +66,6 @@ export default {
   beforeDestroy: function () {
     window.removeEventListener('resize', this.handleResize)
   }
-
 }
 </script>
 
