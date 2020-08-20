@@ -16,16 +16,12 @@ const mailTransport = nodemailer.createTransport({
 // 管理者用のメールテンプレート
 const adminContents = data => {
   return `下記内容にてホームページよりお問い合わせを受けました。
-
 お名前：
 ${data.name}
-
 メールアドレス：
 ${data.email}
-
 お問い合わせ項目：
 ${data.select}
-
 内容：
 ${data.contents}
 `;
