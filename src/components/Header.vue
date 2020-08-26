@@ -4,10 +4,17 @@
       <h1 class="header__companyName">Union</h1>
     </router-link>
 
-    <button v-if="windowW < 1080" type="button" class="menubtn" @click="show=!show">
-      <span class="menubtn__line"></span>
-      <span class="menubtn__line"></span>
-      <span class="menubtn__line"></span>
+    <button v-if="windowW < 1080" type="button" v-bind:class="[ show == true ? 'menubtn--active' : '' ]" class="menubtn" @click="show=!show">
+      <span class="menubtn__dot"></span>
+      <span class="menubtn__dot"></span>
+      <span class="menubtn__dot"></span>
+      <span class="menubtn__dot"></span>
+      <span class="menubtn__dot"></span>
+      <span class="menubtn__dot"></span>
+      <span class="menubtn__dot"></span>
+      <span class="menubtn__dot"></span>
+      <span class="menubtn__dot"></span>
+
     </button>
     <transition>
       <nav v-if="windowW < 1080" v-show="show" class="nav">
@@ -50,6 +57,14 @@ export default {
     handleResize: function() {
       this.windowW = window.innerWidth;
       this.windowH = window.innerHeight;
+    },
+    toggleMenuBtn: function() {
+      const menuBtn = document.getElementsByClassName("menubtn");
+      console.log(this.show);
+      if (this.show == true) {
+        console.log("hhhhhhh");
+        menuBtn.classList.add("aaa");
+      }
     }
   },
   mounted: function () {
@@ -83,25 +98,50 @@ export default {
 
 .menubtn {
   position: relative;
-  width: 40px;
-  height: 16px;
+  width: 28px;
+  height: 28px;
 }
-  .menubtn__line {
+  .menubtn__dot {
+    left: 0;
     display: block;
     position: absolute;
-    width: 40px;
-    height: 2px;
+    width: 4px;
+    height: 4px;
     background-color: #fff;
+    transition: all 0.5s;
   }
-  .menubtn__line:first-of-type {
+  .menubtn__dot:nth-child(-n+3) {
     top: 0;
   }
-  .menubtn__line:nth-child(2) {
-    top: 8px;
+  .menubtn__dot:nth-child(n+4):nth-child(-n+6) {
+    top: 12px;
   }
-  .menubtn__line:last-child {
-    top: 16px;
+  .menubtn__dot:nth-child(n+6) {
+    top: 24px;
   }
+  .menubtn__dot:nth-child(3n+2) {
+    left: 12px;
+  }
+  .menubtn__dot:nth-child(3n+3) {
+    left: 24px;
+  }
+  .menubtn--active .menubtn__dot:nth-child(2) {
+    left: 18px;
+    top: 6px;
+  }
+  .menubtn--active .menubtn__dot:nth-child(4) {
+    left: 6px;
+    top: 6px;
+  }
+  .menubtn--active .menubtn__dot:nth-child(6) {
+    left: 18px;
+    top: 18px;
+  }
+  .menubtn--active .menubtn__dot:nth-child(8) {
+    left: 6px;
+    top: 18px;
+  }
+
 
 .nav {
   position: absolute;
