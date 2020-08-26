@@ -18,19 +18,19 @@
       <div class="section__container">
         <h2 class="section__title">Why Union</h2>
         <div class="reason__content">
-          <div class="section__box reason__box">
+          <div class="section__box reason__box fadein">
             <img src="../assets/fish2.png" alt="fishのicon画像" class="reason__icon">
             <h3 class="section__subtitle">オーダー水槽</h3>
             <p class="section__sentence">完全オーダーメイドも可能で設置場所の雰囲気やイメージに合わせて最も効果的に水槽を露出できるよう設計します</p>
           </div>
 
-          <div class="section__box reason__box">
+          <div class="section__box reason__box fadein">
             <img src="../assets/anemone-fish.png" alt="fishのicon画像" class="reason__icon">
             <h3 class="section__subtitle">デザイン性</h3>
             <p class="section__sentence">弊社は、1000社以上の実績と経験からお客様に合ったデザインを導き出し、レイアウトする事が出来ます。</p>
           </div>
 
-          <div class="section__box reason__box">
+          <div class="section__box reason__box fadein">
             <img src="../assets/fish.png" alt="fishのicon画像" class="reason__icon">
             <h3 class="section__subtitle">提案力</h3>
             <p class="section__sentence">弊社はこの道のプロフェッショナルとしてお客様に出来るだけ多くのメリットがあるご提案を得意としています。</p>
@@ -49,7 +49,7 @@
     <router-link to="/plan">
       <section class="section section__bgi section__bgi--plan center-item__sp">
         <div class="section__container">
-          <div class="section__bgi-plan-sentence">
+          <div class="section__bgi-plan-sentence fadein">
             <h2 class="section__title">Plan</h2>
             <p class="section__sentence section__sentence--mb">お客様のご予算やイメージに合わせて<br>最適なプランをご提供します。</p>
             <button type="button" name="more" class="button button-square">詳しくはこちら</button>
@@ -61,7 +61,7 @@
     <router-link to="/work">
       <section class="section section__bgi section__bgi--work center-item__sp">
         <div class="section__container">
-          <div class="section__bgi-work-sentence">
+          <div class="section__bgi-work-sentence fadein">
             <h2 class="section__title">Work</h2>
             <p class="section__sentence section__sentence--mb">お客様のご予算やイメージに合わせて<br>最適なプランをご提供します。</p>
             <button type="button" name="more" class="button button-square">詳しくはこちら</button>
@@ -105,7 +105,7 @@ export default {
       this.scrollY = window.scrollY;
     },
     fadeIn() {
-      const elements = document.getElementsByClassName("section");
+      const elements = document.getElementsByClassName("fadein");
 
       for( let i=0; i<elements.length; i++) {
         const elementRectTop = elements[i].getBoundingClientRect().top;
@@ -114,9 +114,14 @@ export default {
         const elementBottom = elementRectBottom + scrollY;
         const elementH = elementBottom - elementTop;
         const fadeStart = elementTop + (elementH / 2);
+        elements[i].classList.add("hidden");
 
         if (scrollY > fadeStart - this.windowH){
-          console.log("hoge" + i);
+          elements[i].classList.add("animation__fade-in");
+        }
+       
+        else {
+          elements[i].classList.add("hidden");
         }
       }
     }

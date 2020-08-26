@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="windowW < 768">
-      <hooper :autoPlay="true" :playSpeed="1500">
+      <hooper :autoPlay="true" :playSpeed="2000">
         <slide>
           <img src="../assets/slide1.jpg" alt="アクアリウムの画像" class="hooper-content">
         </slide>
@@ -69,6 +69,9 @@ export default {
 .hooper {
   height: auto;
 }
+  .v-application .hooper-track {
+  padding-left: 0;
+  }
   .hooper-content {
     width: 100%;
     height: auto;
