@@ -77,7 +77,7 @@ export default {
     height: auto;
   }
 .design__img {
-  margin-bottom: -2px;
+  margin-bottom: -6px;
   width: 33.3333%
 }
 </style>

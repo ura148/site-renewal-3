@@ -63,7 +63,7 @@
         <div class="section__container">
           <div class="section__bgi-work-sentence fadein">
             <h2 class="section__title">Work</h2>
-            <p class="section__sentence section__sentence--mb">お客様のご予算やイメージに合わせて<br>最適なプランをご提供します。</p>
+            <p class="section__sentence section__sentence--mb">これまで制作してきた数々の<br>アクアリウムをご紹介</p>
             <button type="button" name="more" class="button button-square">詳しくはこちら</button>
           </div>
         </div>
